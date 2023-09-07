@@ -27,4 +27,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "State")
 	float AimPitch;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "State")
+	uint32 bIsCrouch:1;
 };

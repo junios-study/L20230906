@@ -68,6 +68,7 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	{
 		EIC->BindAction(IA_MoveForwardAndRight, ETriggerEvent::Triggered, this, &AMyCharacter::Move);
 		EIC->BindAction(IA_Look, ETriggerEvent::Triggered, this, &AMyCharacter::Look);
+		EIC->BindAction(IA_Crouch, ETriggerEvent::Triggered, this, &AMyCharacter::DoCrouch);
 	}
 
 
@@ -97,5 +98,18 @@ void AMyCharacter::Look(const FInputActionValue& Value)
 
 	AddControllerPitchInput(Vector.Y);
 	AddControllerYawInput(Vector.X);
+}
+
+void AMyCharacter::DoCrouch(const FInputActionValue& Value)
+{
+	if (CanCrouch())
+	{
+		Crouch();
+	}
+	else
+	{
+		UnCrouch();
+	}
+
 }
 
