@@ -57,11 +57,19 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Input")
 	class UInputAction* IA_Crouch;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Input")
+	class UInputAction* IA_Dead;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Data")
+	class UAnimMontage* AnimMontage;
+
 
 	void Move(const FInputActionValue& Value);
 
 	void Look(const FInputActionValue& Value);
 
 	void DoCrouch(const FInputActionValue& Value);
+
+	void DoDead(const FInputActionValue& Value);
 
 };

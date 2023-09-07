@@ -69,6 +69,7 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 		EIC->BindAction(IA_MoveForwardAndRight, ETriggerEvent::Triggered, this, &AMyCharacter::Move);
 		EIC->BindAction(IA_Look, ETriggerEvent::Triggered, this, &AMyCharacter::Look);
 		EIC->BindAction(IA_Crouch, ETriggerEvent::Triggered, this, &AMyCharacter::DoCrouch);
+		EIC->BindAction(IA_Dead, ETriggerEvent::Triggered, this, &AMyCharacter::DoDead);
 	}
 
 
@@ -111,5 +112,11 @@ void AMyCharacter::DoCrouch(const FInputActionValue& Value)
 		UnCrouch();
 	}
 
+}
+
+void AMyCharacter::DoDead(const FInputActionValue& Value)
+{
+	FString SectionName = FString::Printf(TEXT("Death%d"), FMath::RandRange(1, 3));
+	PlayAnimMontage(AnimMontage, 1.0f, FName(*SectionName));
 }
 
