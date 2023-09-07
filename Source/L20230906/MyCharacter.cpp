@@ -93,6 +93,8 @@ void AMyCharacter::Look(const FInputActionValue& Value)
 {
 	FVector2D Vector = Value.Get<FVector2D>();
 
+	
+
 	AddControllerPitchInput(Vector.Y);
 	AddControllerYawInput(Vector.X);
 }

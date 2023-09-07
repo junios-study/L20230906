@@ -16,5 +16,15 @@ class L20230906_API UMyAnimInstance : public UAnimInstance
 public:
 	virtual void NativeUpdateAnimation(float DeltaSeconds) override;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "State")
+	float Speed;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "State")
+	float Direction;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "State")
+	float AimYaw;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "State")
+	float AimPitch;
 };
