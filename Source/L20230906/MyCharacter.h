@@ -72,4 +72,7 @@ public:
 
 	void DoDead(const FInputActionValue& Value);
 
+	FRotator GetAimOffset() const;
+
+
 };

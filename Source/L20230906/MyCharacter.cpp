@@ -120,3 +120,12 @@ void AMyCharacter::DoDead(const FInputActionValue& Value)
 	PlayAnimMontage(AnimMontage, 1.0f, FName(*SectionName));
 }
 
+FRotator AMyCharacter::GetAimOffset() const
+{
+	const FVector AimDirWS = GetBaseAimRotation().Vector();
+	const FVector AimDirLS = ActorToWorld().InverseTransformVectorNoScale(AimDirWS);
+	const FRotator AimRotLS = AimDirLS.Rotation();
+
+	return AimRotLS;
+}
+

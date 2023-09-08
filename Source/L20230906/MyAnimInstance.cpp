@@ -22,8 +22,8 @@ void UMyAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 		//Pawn->GetCharacterMovement()->IsCrouching()
 		bIsCrouch = Pawn->bIsCrouched;
 
-		AimYaw = Pawn->GetBaseAimRotation().Yaw;
-		AimPitch = Pawn->GetBaseAimRotation().Pitch;
+		AimYaw = Pawn->GetAimOffset().Yaw;
+		AimPitch = Pawn->GetAimOffset().Pitch;
 	}
 
 }
